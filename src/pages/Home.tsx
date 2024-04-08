@@ -1,9 +1,6 @@
+import HomePage from '@components/Home';
 import React from 'react';
 
 export const Home = () => {
-  return (
-    <div>
-      <div>Home</div>
-    </div>
-  );
+  return <HomePage />;
 };
