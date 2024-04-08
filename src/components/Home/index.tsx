@@ -1,3 +1,4 @@
+import Footer from '@components/common/Footer';
 import React from 'react';
 import styled from 'styled-components';
 import ExhibitionList from './ExhibitionList';
@@ -6,6 +7,7 @@ const HomePage = () => {
   return (
     <Container>
       <ExhibitionList />
+      <Footer />
     </Container>
   );
 };
