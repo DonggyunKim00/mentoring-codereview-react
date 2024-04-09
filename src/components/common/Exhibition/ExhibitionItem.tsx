@@ -4,11 +4,13 @@ import ReservationBtn from '@components/common/Buttons/ReservationBtn';
 import WishBtn from '@components/common/Buttons/WishBtn';
 import StyledSpan from '@components/common/styled/StyledSpan';
 import StyledTitle from '@components/common/styled/StyledTitle';
+import { ExhibitionItemType } from 'types/exhibition';
 
-const ExhibitionItem = () => {
+const ExhibitionItem = ({ ...props }: ExhibitionItemType) => {
+  const { id, title, imageUrl, place, price, date } = props;
   return (
     <Container>
-      <ItemImage></ItemImage>
+      <ItemImage src={imageUrl} />
       <Info>
         <InfoTop>
           <InfoHeader>
@@ -17,7 +19,7 @@ const ExhibitionItem = () => {
               fontSize={16}
               fontWeight={700}
               lineheight={19.2}
-              text={'전시 제목'}
+              text={title}
             />
             <WishBtn onClick={() => {}} />
           </InfoHeader>
@@ -26,14 +28,14 @@ const ExhibitionItem = () => {
             fontSize={12}
             fontWeight={400}
             lineheight={19.2}
-            text={'장소'}
+            text={place}
           />
           <StyledSpan
             color="#ff4800"
             fontSize={12}
             fontWeight={400}
             lineheight={19.2}
-            text={'가격'}
+            text={price.toString()}
           />
         </InfoTop>
         <InfoBottom>
@@ -42,7 +44,7 @@ const ExhibitionItem = () => {
             fontSize={8}
             fontWeight={400}
             lineheight={9.6}
-            text={'2024.04.08 ~ 2024.04.08'}
+            text={[date.started, date.ended].join(' ~ ')}
           />
           <ReservationBtn onClick={() => {}} />
         </InfoBottom>
@@ -78,7 +80,7 @@ const InfoBottom = styled.div`
   justify-content: space-between;
   align-items: center;
 `;
-const ItemImage = styled.div`
+const ItemImage = styled.img`
   display: flex;
   width: 80px;
   height: 80px;

@@ -2,11 +2,19 @@ import React from 'react';
 import styled from 'styled-components';
 import ExhibitionList from '@components/common/Exhibition/ExhibitionList';
 import Footer from '@components/common/Footer';
+import { useExhibitionList } from '@hooks/useExhibition';
+import LoadingSpinner from '@components/common/LoadingSpinner';
 
 const HomePage = () => {
+  const { list, isLoading } = useExhibitionList();
+
   return (
     <Container>
-      <ExhibitionList />
+      {isLoading ? (
+        <LoadingSpinner width={40} height={40} $borderWidth={3} />
+      ) : (
+        <ExhibitionList list={list} />
+      )}
       <Footer />
     </Container>
   );

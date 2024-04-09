@@ -6,7 +6,7 @@ import ExhibitionList from '@components/common/Exhibition/ExhibitionList';
 const WishListPage = () => {
   return (
     <Container>
-      <ExhibitionList />
+      <ExhibitionList list={[]} />
       <Footer />
     </Container>
   );

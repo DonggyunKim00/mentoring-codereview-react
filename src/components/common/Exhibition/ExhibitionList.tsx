@@ -1,14 +1,14 @@
+import { ExhibitionItemType } from 'types/exhibition';
 import React from 'react';
 import { styled } from 'styled-components';
 import ExhibitionItem from './ExhibitionItem';
 
-const ExhibitionList = () => {
+const ExhibitionList = ({ list }: { list: ExhibitionItemType[] }) => {
   return (
     <Container>
-      <ExhibitionItem />
-      <ExhibitionItem />
-      <ExhibitionItem />
-      <ExhibitionItem />
+      {list.map((item) => {
+        return <ExhibitionItem key={item.id} {...item} />;
+      })}
     </Container>
   );
 };
@@ -20,4 +20,9 @@ const Container = styled.div`
   flex-direction: column;
   gap: 8px;
   padding: 8px;
+  max-height: 764px;
+  overflow-y: scroll;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `;
