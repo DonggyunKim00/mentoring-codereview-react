@@ -1,9 +1,9 @@
+import React from 'react';
+import { styled } from 'styled-components';
 import ReservationBtn from '@components/common/Buttons/ReservationBtn';
 import WishBtn from '@components/common/Buttons/WishBtn';
 import StyledSpan from '@components/common/styled/StyledSpan';
 import StyledTitle from '@components/common/styled/StyledTitle';
-import React from 'react';
-import { styled } from 'styled-components';
 
 const ExhibitionItem = () => {
   return (

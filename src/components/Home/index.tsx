@@ -1,7 +1,7 @@
-import Footer from '@components/common/Footer';
 import React from 'react';
 import styled from 'styled-components';
-import ExhibitionList from './ExhibitionList';
+import ExhibitionList from '@components/common/Exhibition/ExhibitionList';
+import Footer from '@components/common/Footer';
 
 const HomePage = () => {
   return (
@@ -14,7 +14,7 @@ const HomePage = () => {
 
 export default HomePage;
 
-const Container = styled.div`
+export const Container = styled.div`
   width: 390px;
   height: 100vh;
   display: flex;
