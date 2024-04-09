@@ -1,35 +1,35 @@
 import React from 'react';
 import { styled } from 'styled-components';
-import StyledButton from '@components/common/styled/StyledButton';
 import StyledSpan from '../styled/StyledSpan';
+import StyledLink from '../styled/StyledLink';
 
 const Footer = () => {
   return (
     <Container>
-      <StyledButton width={32} height={36} bgcolor={'transparent'} onClick={() => {}}>
+      <StyledLink width={32} height={36} bgcolor={'transparent'} href={'/'}>
         <ButtonInner>
           <img src="/Ticket.svg" width={18} height={18} />
           <StyledSpan
-            color="#1a1a1a"
+            color={window.location.pathname === '/' ? '#1a1a1a' : '#AAAAAA'}
             fontSize={12}
             fontWeight={400}
             lineheight={14.4}
             text={'전시회'}
           />
         </ButtonInner>
-      </StyledButton>
-      <StyledButton width={32} height={36} bgcolor={'transparent'} onClick={() => {}}>
+      </StyledLink>
+      <StyledLink width={32} height={36} bgcolor={'transparent'} href={'/wishlist'}>
         <ButtonInner>
           <img src="/FillStar.svg" width={18} height={18} />
           <StyledSpan
-            color="#AAAAAA"
+            color={window.location.pathname === '/wishlist' ? '#1a1a1a' : '#AAAAAA'}
             fontSize={12}
             fontWeight={400}
             lineheight={14.4}
             text={'찜목록'}
           />
         </ButtonInner>
-      </StyledButton>
+      </StyledLink>
     </Container>
   );
 };
@@ -43,7 +43,7 @@ const Container = styled.div`
   width: 100%;
   min-height: 80px;
   border-top: 1px solid #ededed;
-  button {
+  a {
     width: 50%;
     height: 100%;
     cursor: pointer;
