@@ -8,6 +8,7 @@ import { ExhibitionItemType } from 'types/exhibition';
 
 const ExhibitionItem = ({ ...props }: ExhibitionItemType) => {
   const { id, title, imageUrl, place, price, date } = props;
+
   return (
     <Container>
       <ItemImage src={imageUrl} />
@@ -21,7 +22,7 @@ const ExhibitionItem = ({ ...props }: ExhibitionItemType) => {
               lineheight={19.2}
               text={title}
             />
-            <WishBtn onClick={() => {}} />
+            <WishBtn itemId={id} />
           </InfoHeader>
           <StyledSpan
             color="#999999"
