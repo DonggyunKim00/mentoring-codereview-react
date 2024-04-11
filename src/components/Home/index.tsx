@@ -3,7 +3,7 @@ import ExhibitionList from '@components/common/Exhibition/ExhibitionList';
 import Footer from '@components/common/Footer';
 import { useExhibitionList } from '@hooks/useExhibition';
 import LoadingSpinner from '@components/common/LoadingSpinner';
-import PageLayout from '@components/common/styled/PageLayout';
+import { PageLayout } from '@components/common/styled/PageLayout';
 
 const HomePage = () => {
   const { list, isLoading } = useExhibitionList();

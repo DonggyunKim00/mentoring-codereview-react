@@ -5,7 +5,7 @@ import { WishListContext } from '@src/store/wishList';
 import { useExhibitionList } from '@hooks/useExhibition';
 import LoadingSpinner from '@components/common/LoadingSpinner';
 import None from './None';
-import PageLayout from '@components/common/styled/PageLayout';
+import { PageLayout } from '@components/common/styled/PageLayout';
 
 const WishListPage = () => {
   const { list, isLoading } = useExhibitionList();

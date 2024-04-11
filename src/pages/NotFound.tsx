@@ -1,3 +1,4 @@
+import { PageLayout } from '@components/common/styled/PageLayout';
 import StyledSpan from '@components/common/styled/StyledSpan';
 import React from 'react';
 import { styled } from 'styled-components';
@@ -17,13 +18,9 @@ export const NotFound = () => {
   );
 };
 
-const Layout = styled.div`
-  display: flex;
-  flex-direction: column;
+const Layout = styled(PageLayout)`
   justify-content: center;
   align-items: center;
   gap: 20px;
-  width: 390px;
-  height: 100vh;
   background-color: black;
 `;
