@@ -5,7 +5,7 @@ interface StyledOptions {
   color: string;
   fontSize: number;
   fontWeight: 400 | 500 | 600;
-  lineheight: 9.6 | 14.4 | 19.2 | 24 | 26 | 28.8;
+  lineheight: 9.6 | 14.4 | 19.2 | 24 | 26 | 28.8 | 60;
 }
 interface StyledSpanProps extends StyledOptions {
   text: string;
