@@ -1,6 +1,6 @@
 import React from 'react';
 import { styled } from 'styled-components';
-import ReservationBtn from '@components/common/Buttons/ReservationBtn';
+import ReservationRouteBtn from '@components/common/Buttons/ReservationRouteBtn';
 import WishBtn from '@components/common/Buttons/WishBtn';
 import StyledSpan from '@components/common/styled/StyledSpan';
 import StyledTitle from '@components/common/styled/StyledTitle';
@@ -47,7 +47,7 @@ const ExhibitionItem = ({ ...props }: ExhibitionItemType) => {
             lineheight={9.6}
             text={[date.started, date.ended].join(' ~ ')}
           />
-          <ReservationBtn onClick={() => {}} />
+          <ReservationRouteBtn itemId={id} />
         </InfoBottom>
       </Info>
     </Container>
