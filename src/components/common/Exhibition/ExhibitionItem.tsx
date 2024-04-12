@@ -22,7 +22,7 @@ const ExhibitionItem = ({ ...props }: ExhibitionItemType) => {
               lineheight={19.2}
               text={title}
             />
-            <WishBtn itemId={id} />
+            <WishBtn itemId={id} width={18} height={18} />
           </InfoHeader>
           <StyledSpan
             color="#999999"

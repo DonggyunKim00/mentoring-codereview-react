@@ -36,4 +36,5 @@ const Container = styled.button<ButtonStyledOptions>`
   width: ${({ width }) => `${width}px`};
   height: ${({ height }) => `${height}px`};
   background-color: ${({ bgcolor }) => `${bgcolor}`};
+  cursor: pointer;
 `;
