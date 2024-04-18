@@ -5,12 +5,16 @@ import StyledTitle from '@components/common/styled/StyledTitle';
 import StyledSpan from '@components/common/styled/StyledSpan';
 import WishBtn from '@components/common/Buttons/WishBtn';
 import StyledButton from '@components/common/styled/StyledButton';
+import Modal from './Modal';
+import useModalStateStore from '@src/store/modalState';
 
 const Content = ({ ...props }: ExhibitionItemType) => {
   const { id, title, imageUrl, place, price, date } = props;
+  const { modalState, open } = useModalStateStore();
 
   return (
     <Container>
+      <>{modalState && <Modal />}</>
       <Image src={imageUrl} />
       <InnerContent>
         <StyledTitle
@@ -46,7 +50,7 @@ const Content = ({ ...props }: ExhibitionItemType) => {
           </LeftInfo>
           <WishBtn itemId={id} width={32} height={32} />
         </Bottom>
-        <StyledButton width={366} height={59} bgcolor={'#FFBF66'} onClick={() => {}}>
+        <StyledButton width={366} height={59} bgcolor={'#FFBF66'} onClick={() => open()}>
           <StyledSpan
             color="#FFF"
             fontSize={24}
