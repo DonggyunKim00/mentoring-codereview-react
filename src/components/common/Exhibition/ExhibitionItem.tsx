@@ -5,6 +5,15 @@ import WishBtn from '@components/common/Buttons/WishBtn';
 import StyledSpan from '@components/common/styled/StyledSpan';
 import StyledTitle from '@components/common/styled/StyledTitle';
 import { ExhibitionItemType } from 'types/exhibition';
+import { useCompareRoute } from '@hooks/useCompareRoute';
+interface InfoBottomProps {
+  children: React.ReactNode;
+}
+const InfoBottom = ({ ...props }: InfoBottomProps) => {
+  const { isSameRoute } = useCompareRoute('/wishlist');
+
+  return <Bottom $reverse={isSameRoute}>{props.children}</Bottom>;
+};
 
 const ExhibitionItem = ({ ...props }: ExhibitionItemType) => {
   const { id, title, imageUrl, place, price, date } = props;
@@ -76,15 +85,17 @@ const InfoHeader = styled.div`
   justify-content: space-between;
   height: fit-content;
 `;
-const InfoBottom = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-`;
 const ItemImage = styled.img`
   display: flex;
   width: 80px;
   height: 80px;
   border-radius: 8px;
   background-color: black;
+`;
+
+const Bottom = styled.div<{ $reverse: boolean }>`
+  display: flex;
+  flex-direction: ${({ $reverse }) => ($reverse ? 'row-reverse' : 'row')};
+  justify-content: space-between;
+  align-items: center;
 `;
