@@ -1,15 +1,15 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import Footer from '@components/common/Footer';
 import ExhibitionList from '@components/common/Exhibition/ExhibitionList';
-import { WishListContext } from '@src/store/wishList';
 import { useExhibitionList } from '@hooks/useExhibition';
 import LoadingSpinner from '@components/common/LoadingSpinner';
 import None from './None';
 import { PageLayout } from '@components/common/styled/PageLayout';
+import useWishListStore from '@src/store/wishList';
 
 const WishListPage = () => {
   const { list, isLoading } = useExhibitionList();
-  const { wishList } = useContext(WishListContext);
+  const { wishList } = useWishListStore();
 
   return (
     <PageLayout>

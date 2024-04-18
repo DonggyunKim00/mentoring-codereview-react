@@ -1,23 +1,15 @@
-import React, { useState, createContext, Dispatch, SetStateAction } from 'react';
+import create from 'zustand';
 
-interface ContextValueType {
+interface WishListStore {
   wishList: number[];
-  setWishList: Dispatch<SetStateAction<number[]>>;
+  add: (id: number) => void;
+  remove: (id: number) => void;
 }
 
-export const WishListContext = createContext<ContextValueType>({
+const useWishListStore = create<WishListStore>((set) => ({
   wishList: [],
-  setWishList: () => {},
-});
+  add: (id) => set((state) => ({ wishList: [...state.wishList, id] })),
+  remove: (id) => set((state) => ({ wishList: [...state.wishList.filter((item) => item !== id)] })),
+}));
 
-const WishListProvider = ({ ...props }) => {
-  const [wishList, setWishList] = useState<number[]>([]);
-
-  return (
-    <WishListContext.Provider value={{ wishList, setWishList }}>
-      {props.children}
-    </WishListContext.Provider>
-  );
-};
-
-export default WishListProvider;
+export default useWishListStore;

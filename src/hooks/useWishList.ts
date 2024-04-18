@@ -1,17 +1,17 @@
-import { useState, useEffect, useContext } from 'react';
-import { WishListContext } from '@src/store/wishList';
+import { useState, useEffect } from 'react';
+import useWishListStore from '@src/store/wishList';
 
 /**
  * 전역변수 wishList에 전시회의 id 값 추가, 삭제 토글 기능
  */
 export const useWishItemToggle = () => {
-  const { wishList, setWishList } = useContext(WishListContext);
+  const { wishList, add, remove } = useWishListStore();
 
   const toggleFn = (itemId: number) => {
     if (wishList.find((item) => item === itemId) === undefined) {
-      setWishList((prev) => [...prev, itemId]);
+      add(itemId);
     } else {
-      setWishList((prev) => [...prev.filter((item) => item !== itemId)]);
+      remove(itemId);
     }
   };
 
@@ -24,7 +24,7 @@ export const useWishItemToggle = () => {
  * @returns isWish : booelan
  */
 export const useIsWish = (itemId: number) => {
-  const { wishList } = useContext(WishListContext);
+  const { wishList } = useWishListStore();
   const [isWish, setIsWish] = useState<boolean>(false);
 
   useEffect(() => {
